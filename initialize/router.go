@@ -26,10 +26,10 @@ func RegisterRouter() *gin.Engine {
 		})
 	})
 
-	router.OPTIONS("/v1/chat/completions", optionsHandler)
-	router.OPTIONS("/v1/chat/models", optionsHandler)
+	router.OPTIONS("/ijing/v1/chat/completions", optionsHandler)
+	router.OPTIONS("/ijing/v1/chat/models", optionsHandler)
 	authGroup := router.Group("").Use(middlewares.Authorization)
-	authGroup.POST("/v1/chat/completions", handler.duckduckgo)
-	authGroup.GET("/v1/models", handler.engines)
+	authGroup.POST("/ijing/v1/chat/completions", handler.duckduckgo)
+	authGroup.GET("/ijing/v1/models", handler.engines)
 	return router
 }
